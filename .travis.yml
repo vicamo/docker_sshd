@@ -1,0 +1,22 @@
+dist: xenial
+sudo: required
+services:
+- docker
+
+env:
+  matrix:
+  - SUITE=12.04
+  - SUITE=14.04
+  - SUITE=16.04
+  - SUITE=18.04
+
+branches:
+  only:
+  - master
+
+script:
+- docker build -t vicamo/sshd:$SUITE $SUITE
+
+notifications:
+  slack:
+    secure: "Tcrij0wdvxvGmx7Nz3AV7ZJOVRs/meDJcEQ46ghO728DU7t0pE+TzSMn8TLDrB5k4AoDLB3AQ34TR0YRqt+Di9JQolIjPO6eHsX0jlWJsZfK0tP0FBGrlwugZ1d966ma38LY8+lfqlgeh59LM8IUjn2qcXFBHnWXNtcUNewWjR4N2PaGESvSlwXbPXSPx/4fBjnGDHTHA08pXsH8tqgE/mRF8js+5fRKYkNc/5fPCLJJyj5ru3VuR1LByAVZbCqzhY+fPdOc4ug4djK6In9WgB4Z94mNtUTZbv3Ck9tJuc34ZPFz4dRDoM7OL8YZoxx2O6RA5lWQgVhTuYgbzdKqBGC5e2GPEXQ0DBa/1nQlyVqaru4K5WYANEKOFzaxWcHOXN33ZRTczc4QDDKN46kv2HIBVoE/5XEKPf+Ia7IbJ1Dox6+ETCPIBvVfvWjrkPe64oj12bPUOb71IVZdBzbhtzyL/rKuKUE/0OpW7l2StWvWDQ74+taw4aEkgi+/AQwFYKwlhm2nWfqTYzLrQNqNrXFPt4BkYUZzXW6PsIL/1izlic2S8SqqJEjKmvXDDW3IlA6edZ1xVW4q6BXT6FXuMWo6HKk37AzuputmOipIs3zUU9Ll7XIztuQrgkrPW2uzBB43Lbgx41NPKZAxVok3ou+UtpnLxPqEOTrPOQWTGrE="
