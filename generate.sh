@@ -3,13 +3,15 @@ set -e
 
 travisEnv=
 
-for v in */; do
+for v in */*/; do
   v="${v%/}"
-  sed "s/%SUITE%/$v/g" Dockerfile.template > "$v/Dockerfile"
+  suite=${v#*/}
+  distro=${v%/*}
+  sed "s/%DISTRO%/$distro/g; s/%SUITE%/$suite/g" Dockerfile.template > "$v/Dockerfile"
   if test ${#travisEnv} -ne 0; then
-    travisEnv+='\n  - SUITE='"$v";
+    travisEnv+='\n  - DISTRO='"$distro"' SUITE='"$suite";
   else
-    travisEnv+='  - SUITE='"$v";
+    travisEnv+='  - DISTRO='"$distro"' SUITE='"$suite";
   fi
 done
 

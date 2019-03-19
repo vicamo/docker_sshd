@@ -13,10 +13,11 @@ Dockerized SSH service, built on top of [official Ubuntu](https://registry.hub.d
 
 Base:
 
-- [Precise (12.04) minimal](http://packages.ubuntu.com/precise/ubuntu-minimal)
-- [Trusty (14.04) minimal](http://packages.ubuntu.com/trusty/ubuntu-minimal)
-- [Xenial (16.04) minimal](http://packages.ubuntu.com/xenial/ubuntu-minimal)
-- [Bionic (18.04) minimal](http://packages.ubuntu.com/bionic/ubuntu-minimal)
+- Ubuntu
+  - [Precise (12.04) minimal](http://packages.ubuntu.com/precise/ubuntu-minimal)
+  - [Trusty (14.04) minimal](http://packages.ubuntu.com/trusty/ubuntu-minimal)
+  - [Xenial (16.04) minimal](http://packages.ubuntu.com/xenial/ubuntu-minimal)
+  - [Bionic (18.04) minimal](http://packages.ubuntu.com/bionic/ubuntu-minimal)
 
 Image specific:
 - [openssh-server](https://help.ubuntu.com/community/SSH/OpenSSH/Configuring)

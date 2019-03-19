@@ -5,17 +5,17 @@ services:
 
 env:
   matrix:
-  - SUITE=bionic
-  - SUITE=precise
-  - SUITE=trusty
-  - SUITE=xenial
+  - DISTRO=ubuntu SUITE=bionic
+  - DISTRO=ubuntu SUITE=precise
+  - DISTRO=ubuntu SUITE=trusty
+  - DISTRO=ubuntu SUITE=xenial
 
 branches:
   only:
   - master
 
 script:
-- docker build -t vicamo/sshd:$SUITE $SUITE
+- docker build -t vicamo/sshd:$SUITE $DISTRO/$SUITE
 
 notifications:
   slack:
