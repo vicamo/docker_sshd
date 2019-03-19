@@ -39,7 +39,6 @@ Image specific:
 
 Config:
 
-  - `UsePAM no`
   - exposed port 22
   - default command: `/usr/sbin/sshd -D -e`
 
