@@ -5,10 +5,10 @@ services:
 
 env:
   matrix:
-  - SUITE=12.04
-  - SUITE=14.04
-  - SUITE=16.04
-  - SUITE=18.04
+  - SUITE=bionic
+  - SUITE=precise
+  - SUITE=trusty
+  - SUITE=xenial
 
 branches:
   only:

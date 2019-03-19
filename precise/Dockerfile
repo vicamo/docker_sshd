@@ -1,4 +1,4 @@
-FROM       ubuntu:14.04
+FROM       ubuntu:precise
 MAINTAINER Aleksandar Diklic "https://github.com/rastasheep"
 
 RUN apt-get update

@@ -5,7 +5,7 @@ travisEnv=
 
 for v in */; do
   v="${v%/}"
-  sed "s/%VERSION%/$v/g" Dockerfile.template > "$v/Dockerfile"
+  sed "s/%SUITE%/$v/g" Dockerfile.template > "$v/Dockerfile"
   if test ${#travisEnv} -ne 0; then
     travisEnv+='\n  - SUITE='"$v";
   else

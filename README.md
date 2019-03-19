@@ -4,10 +4,10 @@ Dockerized SSH service, built on top of [official Ubuntu](https://registry.hub.d
 
 ## Image tags
 
-- vicamo/sshd:12.04 (precise)
-- vicamo/sshd:14.04 (trusty)
-- vicamo/sshd:16.04 (xenial)
-- vicamo/sshd:18.04 (bionic)
+- vicamo/sshd:precise
+- vicamo/sshd:trusty
+- vicamo/sshd:xenial
+- vicamo/sshd:bionic
 
 ## Installed packages
 
@@ -32,7 +32,7 @@ Config:
 ## Run example
 
 ```bash
-$ sudo docker run -d -P --name test_sshd vicamo/sshd:14.04
+$ sudo docker run -d -P --name test_sshd vicamo/sshd:trusty
 $ sudo docker port test_sshd 22
   0.0.0.0:49154
 
