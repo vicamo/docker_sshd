@@ -6,9 +6,6 @@ services:
 env:
   matrix:
   - SUITE=12.04
-  - SUITE=12.10
-  - SUITE=13.04
-  - SUITE=13.10
   - SUITE=14.04
   - SUITE=16.04
   - SUITE=18.04
