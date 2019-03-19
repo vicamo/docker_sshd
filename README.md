@@ -8,6 +8,8 @@ Dockerized SSH service, built on top of [official Ubuntu](https://registry.hub.d
 - vicamo/sshd:trusty
 - vicamo/sshd:xenial
 - vicamo/sshd:bionic
+- vicamo/sshd:cosmic
+- vicamo/sshd:disco
 
 ## Installed packages
 
@@ -18,6 +20,8 @@ Base:
   - [Trusty (14.04) minimal](http://packages.ubuntu.com/trusty/ubuntu-minimal)
   - [Xenial (16.04) minimal](http://packages.ubuntu.com/xenial/ubuntu-minimal)
   - [Bionic (18.04) minimal](http://packages.ubuntu.com/bionic/ubuntu-minimal)
+  - [Cosmic (18.10) minimal](http://packages.ubuntu.com/cosmic/ubuntu-minimal)
+  - [Disco (19.04) minimal](http://packages.ubuntu.com/disco/ubuntu-minimal)
 
 Image specific:
 - [openssh-server](https://help.ubuntu.com/community/SSH/OpenSSH/Configuring)

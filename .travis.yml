@@ -6,6 +6,8 @@ services:
 env:
   matrix:
   - DISTRO=ubuntu SUITE=bionic
+  - DISTRO=ubuntu SUITE=cosmic
+  - DISTRO=ubuntu SUITE=disco
   - DISTRO=ubuntu SUITE=precise
   - DISTRO=ubuntu SUITE=trusty
   - DISTRO=ubuntu SUITE=xenial
