@@ -1,6 +1,6 @@
 # sshd
 
-Dockerized SSH service, built on top of [official Ubuntu](https://registry.hub.docker.com/_/ubuntu/) images.
+Dockerized SSH service, built on top of official [Ubuntu](https://registry.hub.docker.com/_/ubuntu/) and [Debian](https://registry.hub.docker.com/_/debian/) images.
 
 ## Image tags
 
@@ -10,6 +10,11 @@ Dockerized SSH service, built on top of [official Ubuntu](https://registry.hub.d
 - vicamo/sshd:bionic
 - vicamo/sshd:cosmic
 - vicamo/sshd:disco
+- vicamo/sshd:wheezy
+- vicamo/sshd:jessie
+- vicamo/sshd:stretch
+- vicamo/sshd:buster
+- vicamo/sshd:sid
 
 ## Installed packages
 
@@ -22,6 +27,12 @@ Base:
   - [Bionic (18.04) minimal](http://packages.ubuntu.com/bionic/ubuntu-minimal)
   - [Cosmic (18.10) minimal](http://packages.ubuntu.com/cosmic/ubuntu-minimal)
   - [Disco (19.04) minimal](http://packages.ubuntu.com/disco/ubuntu-minimal)
+- Debian
+  - [Wheezy (7)](https://packages.debian.org/wheezy/)
+  - [Jessie (8)](https://packages.debian.org/jessie/)
+  - [Stretch (9)](https://packages.debian.org/stretch/)
+  - [Buster (10)](https://packages.debian.org/buster/)
+  - [Sid](https://packages.debian.org/sid/)
 
 Image specific:
 - [openssh-server](https://help.ubuntu.com/community/SSH/OpenSSH/Configuring)

@@ -5,6 +5,11 @@ services:
 
 env:
   matrix:
+  - DISTRO=debian SUITE=buster
+  - DISTRO=debian SUITE=jessie
+  - DISTRO=debian SUITE=sid
+  - DISTRO=debian SUITE=stretch
+  - DISTRO=debian SUITE=wheezy
   - DISTRO=ubuntu SUITE=bionic
   - DISTRO=ubuntu SUITE=cosmic
   - DISTRO=ubuntu SUITE=disco
