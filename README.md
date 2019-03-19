@@ -41,12 +41,15 @@ Config:
 
   - `UsePAM no`
   - exposed port 22
-  - default command: `/usr/sbin/sshd -D`
+  - default command: `/usr/sbin/sshd -D -e`
 
 ## Run example
 
 ```bash
 $ sudo docker run --detach --publish-all --name sshd vicamo/sshd:trusty
+$ sudo docker logs sshd
+Server listening on 0.0.0.0 port 22.
+Server listening on :: port 22.
 $ sudo docker port sshd 22
   0.0.0.0:49154
 

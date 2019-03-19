@@ -12,4 +12,4 @@ RUN apt-get update --quiet \
 	&& mkdir /var/run/sshd
 
 EXPOSE 22
-ENTRYPOINT ["/usr/sbin/sshd", "-D"]
+ENTRYPOINT ["/usr/sbin/sshd", "-D", "-e"]
