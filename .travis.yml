@@ -5,17 +5,24 @@ services:
 
 env:
   matrix:
-  - SUITE=12.04
-  - SUITE=14.04
-  - SUITE=16.04
-  - SUITE=18.04
+  - DISTRO=debian SUITE=buster
+  - DISTRO=debian SUITE=jessie
+  - DISTRO=debian SUITE=sid
+  - DISTRO=debian SUITE=stretch
+  - DISTRO=debian SUITE=wheezy
+  - DISTRO=ubuntu SUITE=bionic
+  - DISTRO=ubuntu SUITE=cosmic
+  - DISTRO=ubuntu SUITE=disco
+  - DISTRO=ubuntu SUITE=precise
+  - DISTRO=ubuntu SUITE=trusty
+  - DISTRO=ubuntu SUITE=xenial
 
 branches:
   only:
   - master
 
 script:
-- docker build -t vicamo/sshd:$SUITE $SUITE
+- docker build -t vicamo/sshd:$SUITE $DISTRO/$SUITE
 
 notifications:
   slack:

@@ -1,4 +1,4 @@
-FROM       ubuntu:18.04
+FROM       ubuntu:precise
 MAINTAINER Aleksandar Diklic "https://github.com/rastasheep"
 
 RUN apt-get update

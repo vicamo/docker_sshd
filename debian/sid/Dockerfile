@@ -1,4 +1,4 @@
-FROM       %DISTRO%:%SUITE%
+FROM       debian:sid
 MAINTAINER Aleksandar Diklic "https://github.com/rastasheep"
 
 RUN apt-get update

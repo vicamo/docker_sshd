@@ -1,4 +1,4 @@
-FROM       %DISTRO%:%SUITE%
+FROM       debian:buster
 MAINTAINER Aleksandar Diklic "https://github.com/rastasheep"
 
 RUN apt-get update

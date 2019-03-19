@@ -1,4 +1,4 @@
-FROM       ubuntu:16.04
+FROM       debian:stretch
 MAINTAINER Aleksandar Diklic "https://github.com/rastasheep"
 
 RUN apt-get update
