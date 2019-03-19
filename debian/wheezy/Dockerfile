@@ -1,21 +1,17 @@
-FROM       debian:wheezy
-MAINTAINER Aleksandar Diklic "https://github.com/rastasheep"
+FROM debian:wheezy
 
-RUN apt-get update
+LABEL maintainer="vicamo@gmail.com"
 
-RUN apt-get install -y openssh-server
-RUN mkdir /var/run/sshd
-
-RUN echo 'root:root' |chpasswd
-
-RUN sed -ri 's/^#?PermitRootLogin\s+.*/PermitRootLogin yes/' /etc/ssh/sshd_config
-RUN sed -ri 's/UsePAM yes/#UsePAM yes/g' /etc/ssh/sshd_config
-
-RUN mkdir /root/.ssh
-
-RUN apt-get clean && \
-    rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+RUN apt-get update --quiet \
+	&& apt-get install --quiet --no-install-recommends --yes \
+		openssh-server \
+	&& rm -rf /var/lib/apt/lists/* \
+	&& (echo 'root:root' | chpasswd) \
+	&& sed --in-place --regexp-extended \
+		-e 's/^#?PermitRootLogin\s+.*/PermitRootLogin yes/' \
+		-e 's/UsePAM yes/#UsePAM yes/g' \
+		/etc/ssh/sshd_config \
+	&& mkdir /var/run/sshd /root/.ssh
 
 EXPOSE 22
-
-CMD    ["/usr/sbin/sshd", "-D"]
+ENTRYPOINT ["/usr/sbin/sshd", "-D"]
