@@ -39,36 +39,40 @@ Image specific:
 
 Config:
 
-  - `PermitRootLogin yes`
-  - `UsePAM no`
   - exposed port 22
-  - default command: `/usr/sbin/sshd -D`
-  - root password: `root`
+  - default command: `/usr/sbin/sshd -D -e`
 
 ## Run example
 
 ```bash
-$ sudo docker run -d -P --name test_sshd vicamo/sshd:trusty
-$ sudo docker port test_sshd 22
+$ sudo docker run --detach --publish-all --name sshd vicamo/sshd:trusty
+$ sudo docker logs sshd
+Server listening on 0.0.0.0 port 22.
+Server listening on :: port 22.
+$ sudo docker port sshd 22
   0.0.0.0:49154
 
-$ ssh root@localhost -p 49154
-# The password is `root`
-root@test_sshd $
-```
+$ sudo docker exec --interactive --tty sshd adduser vicamo
+Adding user `vicamo' ...
+Adding new group `vicamo' (1000) ...
+Adding new user `vicamo' (1000) with group `vicamo' ...
+Creating home directory `/home/vicamo' ...
+Copying files from `/etc/skel' ...
+New password:
+Retype new password:
+passwd: password updated successfully
+Changing the user information for vicamo
+Enter the new value, or press ENTER for the default
+        Full Name []:
+        Room Number []:
+        Work Phone []:
+        Home Phone []:
+        Other []:
+Is the information correct? [Y/n] y
 
-## Security
-
-If you are making the container accessible from the internet you'll probably want to secure it bit.
-You can do one of the following two things after launching the container:
-
-- Change the root password: `docker exec -ti test_sshd passwd`
-- Don't allow passwords at all, use keys instead:
-
-```bash
-$ docker exec test_sshd passwd -d root
-$ docker cp file_on_host_with_allowed_public_keys test_sshd:/root/.ssh/authorized_keys
-$ docker exec test_sshd chown root:root /root/.ssh/authorized_keys
+$ ssh vicamo@localhost -p 49154
+vicamo@localhost's password:
+vicamo@682308528aa1:~$
 ```
 
 ## Issues
