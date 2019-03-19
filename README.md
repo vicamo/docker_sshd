@@ -1,25 +1,19 @@
-# ubuntu-sshd
+# sshd
 
 Dockerized SSH service, built on top of [official Ubuntu](https://registry.hub.docker.com/_/ubuntu/) images.
 
 ## Image tags
 
-- rastasheep/ubuntu-sshd:12.04 (precise)
-- rastasheep/ubuntu-sshd:12.10 (quantal)
-- rastasheep/ubuntu-sshd:13.04 (raring)
-- rastasheep/ubuntu-sshd:13.10 (saucy)
-- rastasheep/ubuntu-sshd:14.04 (trusty)
-- rastasheep/ubuntu-sshd:16.04 (xenial)
-- rastasheep/ubuntu-sshd:18.04 (bionic)
+- vicamo/sshd:12.04 (precise)
+- vicamo/sshd:14.04 (trusty)
+- vicamo/sshd:16.04 (xenial)
+- vicamo/sshd:18.04 (bionic)
 
 ## Installed packages
 
 Base:
 
 - [Precise (12.04) minimal](http://packages.ubuntu.com/precise/ubuntu-minimal)
-- [Quantal (12.10) minimal](http://packages.ubuntu.com/quantal/ubuntu-minimal)
-- [Raring (13.04) minimal](http://packages.ubuntu.com/raring/ubuntu-minimal)
-- [Saucy (13.10) minimal](http://packages.ubuntu.com/saucy/ubuntu-minimal)
 - [Trusty (14.04) minimal](http://packages.ubuntu.com/trusty/ubuntu-minimal)
 - [Xenial (16.04) minimal](http://packages.ubuntu.com/xenial/ubuntu-minimal)
 - [Bionic (18.04) minimal](http://packages.ubuntu.com/bionic/ubuntu-minimal)
@@ -38,7 +32,7 @@ Config:
 ## Run example
 
 ```bash
-$ sudo docker run -d -P --name test_sshd rastasheep/ubuntu-sshd:14.04
+$ sudo docker run -d -P --name test_sshd vicamo/sshd:14.04
 $ sudo docker port test_sshd 22
   0.0.0.0:49154
 
@@ -63,4 +57,4 @@ $ docker exec test_sshd chown root:root /root/.ssh/authorized_keys
 
 ## Issues
 
-If you run into any problems with this image, please check (and potentially file new) issues on the [rastasheep/ubuntu-sshd](https://github.com/rastasheep/ubuntu-sshd/issues) repo, which is the source for this image.
+If you run into any problems with this image, please check (and potentially file new) issues on the [vicamo/docker_sshd](https://github.com/vicamo/docker_sshd/issues) repo, which is the source for this image.
