@@ -23,6 +23,17 @@ branches:
 
 script:
 - docker build -t vicamo/sshd:$SUITE $DISTRO/$SUITE
+- docker run --detach --publish-all --name sshd vicamo/sshd:$SUITE
+- docker logs sshd
+- docker exec --interactive --tty sshd useradd -m travis;
+  echo travis:travis | docker exec --interactive sshd chpasswd travis
+- ssh-keygen -t rsa -b 2048 -f /tmp/id_rsa -q -N "";
+  docker exec sshd mkdir -m 700 /home/travis/.ssh;
+  docker exec sshd chown travis.travis /home/travis/.ssh;
+  cat /tmp/id_rsa.pub | docker exec --interactive sshd tee /home/travis/.ssh/authorized_keys
+- SSHD_PORT=$(docker port sshd 22);
+  SSHD_PORT=${SSHD_PORT#*:};
+  ssh -v -v -v -i /tmp/id_rsa -o NoHostAuthenticationForLocalhost=yes -p ${SSHD_PORT} travis@localhost true
 
 notifications:
   slack:
